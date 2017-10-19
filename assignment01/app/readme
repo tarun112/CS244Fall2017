@@ -1,1 +1,8 @@
+After uploading the firmware on the board the serial monitor asks and expects:
+- WiFi ssid,
+- WiFi password,
+- Azure IotHub 'connection_string'
 
+If board wifi router fails to connect with the wifi server it raises an error and prints the board routers MAC address.
+
+After each message transmit to the server it prints either a failure code or the success acknowlegment from the server.

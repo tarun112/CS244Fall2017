@@ -1,1 +1,43 @@
-Assignment01
+CS244 Fall2017 Project assignment 01
+Name: Tarun Agarwal
+UCINetID: taruna, 37042630
+
+
+The assignment 01 is to setup the various components and to test the setup.
+
+
+Component List
+- Sparkfun ESP8266 thing dev board + parts
+- Arduino IDE 1.8.5 for code development and upload
+- Azure IoTHub for server side support
+
+
+The setup includes:
+- Connecting the board to the computer using micro USB cable. The board uses FTDI USB to serial chip for the firmware upload for which drivers are to be installed on the computer.
+- Arduino IDE is used to develop the firmware for the board. It comes with ESP8266 interface libraries and methods. Required Azure libraries for interfacing with Azure IoTHub server can be downloaded using inbuilt library manager.
+- Azure IoTHub server side setup is completed using the available guide. Azure IoTHub uses ‘connection_string’ to identify and use various elements on the server. To setup the server a free tier account is created. An IoTHub is created and board is registered as a device creating a ‘conection_string’, which can be used while developing the firmware to access the device on the server. An Azure storage unit is created and connected to the device using endpoints.
+
+
+The code submitted for the first assignment is to develop board firmware using Arduino IDE and it:
+- interfaces with the ESP8266 board using inbuilt libraries and APIs.
+- connects the board router to the wifi (ssid, password).
+- connects with Azure IoTHub server and transmits data for the registered device. This data is stored using Azure storage interface at the server side.
+- Azure provides example code to setup and interface with the IoTHub. This is modified and submitted as first assignment code. This code is the basis and will be modified as required for the future assignments.
+- The code generates dummy temperature and humidity data which are sent to the server.
+- The data transmission to the server is using MQTT (Message Queue Telemetry Transport) protocol.
+
+
+Serial Monitor:
+- After uploading the firmware on the board the serial monitor asks and expects:
+  - wifi ssid,
+  - wifi password,
+  - Azure IotHub 'connection_string'
+- If board router fails to connect with the wifi server it raises an error and prints the board routers MAC address.
+- After each message transmits to the server it prints either a failure code or the success acknowledgment from the server.
+
+
+References:
+- Sparkfun ESP8266 resources: https://learn.sparkfun.com/tutorials/esp8266-thing-development-board-hookup-guide
+- Microsoft Azure: https://azure.microsoft.com
+- Microsoft Azure setup guide: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started
+- Arduino IDE and resources: https://www.arduino.cc/
